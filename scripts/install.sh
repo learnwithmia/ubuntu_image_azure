@@ -20,5 +20,3 @@ chmod a+x /usr/local/bin/terragrunt
 
 # git. yeah, it's not installed.
 apt-get -y install git
-
-exec "$@"
