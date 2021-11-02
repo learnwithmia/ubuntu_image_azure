@@ -1,5 +1,8 @@
 NAME=ubuntu_image_azure
-VERSION=0.0.1
+VERSION=0.0.2
+
+PHONY: all
+all: clean login build tag push clean
 
 PHONY: login
 login:
@@ -8,6 +11,10 @@ login:
 PHONY: build
 build:
 	docker build . -t $(NAME):$(VERSION)
+
+.PHONY: run
+run:
+	docker run -i -t --rm --name $(NAME) $(NAME):$(VERSION)
 
 .PHONY: tag
 tag:
